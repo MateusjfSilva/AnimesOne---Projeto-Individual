@@ -12,9 +12,9 @@
     display: grid;
     grid-template-columns: 100%;
     grid-template-areas: "header"
-                        "banner"
-                        "section"
-                        "footer";
+        "banner"
+        "section"
+        "footer";
 }
 
 
@@ -38,7 +38,7 @@
     align-items: center;
 }
 
-.container > img {
+.container>img {
     width: 170px;
 }
 
@@ -51,7 +51,8 @@
     align-items: center;
 }
 
-.navbar > ul, a {
+.navbar>ul,
+a {
     font-size: 1.2rem;
     padding: 5px;
     color: red;
@@ -64,14 +65,21 @@
     list-style: none;
 }
 
-.l-header > .container > span {
+li {
+    background-color: rgba(30, 30, 30, 1);
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgba(120, 120, 120, .4);
+}
+
+.l-header>.container>span {
     color: red;
     font-size: 3.125rem;
     font-weight: 900;
     margin-bottom: 10px;
 }
 
-.navbar > ul > li:hover, a:hover {
+.navbar>ul>li:hover,
+a:hover {
     color: yellow;
     cursor: pointer;
     border-radius: 5px;
@@ -90,79 +98,118 @@
 }
 
 
-/* Estilização do banner */
-.banner {
-    align-items: center;
-    align-content: space-between;
-    background-image: url('Assents/fundo-banner.png');
+/* Estilização do banner inicial*/
+.l-banner {
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, .9);
     background-size: cover;
     display: flex;
     grid-area: banner;
     height: calc(100vh - 100px);
-    justify-content: center;
+    flex-direction: row;
+    padding: 70px 50px 70px 50px;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+.img {
+    color: white;
+    display: flex;
+    font-size: 2rem;
     flex-direction: column;
-    padding: 70px 120px 70px 120px;
+    justify-content: center;
+    align-items: center;
 }
 
-.banner > h2 {
-    color: rgba(94, 33, 41, 1);
-    font-size: 4rem;
-    font-weight: 900;
-    text-shadow: 0 0 0.625rem white;
+.img>h2 {
+    margin-bottom: 15px;
+    color: gold;
 }
 
-.banner > span {
+.text {
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 5px rgba(120, 120, 120, .4);
     text-align: justify;
-    color: pink;
-    font-size: 3rem;
-    font-weight: 900;
-    text-shadow: 0 0 0.625rem black;
-}
-
-
-/* Estilização section */
-.sobre-one-piece {
-    padding: 70px 120px 70px 120px;
-    height: 100vh;
-    background-image: url('Assents/fundo-section1.jpg');
-    background-size: cover;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
     display: flex;
     flex-direction: column;
-    grid-area: section;
+    background-color: rgba(30, 30, 30, 1);
+    width: 550px;
 }
 
-.sobre-one-piece > h2 {
-    color: black;
-    font-weight: 700;
-    font-size: 3rem;
-    text-shadow: 0 0 0.625rem white;
+.row-reverse {
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: -3px 3px 5px rgba(120, 120, 120, .4);
 }
 
-.sobre-one-piece > p {
-    color: black;
-    font-weight: 700;
-    font-size: 2rem;
-    text-align: justify;
-    text-shadow: 0 0 0.625rem white;
-    margin-bottom: 30px;
+.text>h2 {
+    color: rgba(92554, 0, 0, 1);
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 15px;
 }
 
-.video-introducao {
+
+/* banner eiichiro oda */
+.l-banner-historia {
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, .9);
+    background-size: cover;
+    display: flex;
+    grid-area: banner;
     height: 100vh;
-    background-image: url('Assents/fundo-video.png');
+    flex-direction: row-reverse;
+    padding: 70px 50px 70px 50px;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+/* Sinopse */
+.l-banner-sinopse {
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, .9);
+    background-size: cover;
+    display: flex;
+    grid-area: banner;
+    height: 100vh;
+    flex-direction: row;
+    padding: 70px 50px 70px 50px;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+/* layout video */
+
+.l-banner-video {
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .9);
     background-size: cover;
     background-position-y: center;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    align-content: space-between;
     flex-direction: column;
+    border: 2px solid white;
 }
 
-.video-introducao > h2 {
+.l-banner-video>h2 {
     color: red;
     font-size: 3rem;
     font-weight: 900;
-    margin-bottom: 20px;
+}
+
+.button-video {
+    background-color: grey;
+    font-weight: 900;
+    border: none;
+    border-radius: 10px;
+    height: 50px;
+    width: 150px;
 }
 
 video {
@@ -172,9 +219,10 @@ video {
 
 /* Estilização footer */
 .l-footer {
-    border-top: 1px solid black;
-    font-size: 1.5rem;
-    background-color: #e7b675;
+    color: white;
+    border-top: 1px solid white;
+    font-size: 1.2rem;
+    background-color: rgba(0, 0, 0, 1);
     height: 20vh;
     grid-area: footer;
     display: flex;
