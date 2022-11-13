@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+
+* {
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Layout da página */
+.l-grid {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-areas: "header"
+                        "banner"
+                        "section"
+                        "footer";
+}
+
+
+/* Estilização do header */
+.l-header {
+    height: 100px;
+    background-color: rgba(0, 0, 0, 1);
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    grid-area: header;
+    box-shadow: 0px 0px 10px black;
+}
+
+.container {
+    width: 500px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.container > img {
+    width: 170px;
+}
+
+.navbar {
+    margin: 0;
+    width: 400px;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar > ul, a {
+    font-size: 1.2rem;
+    padding: 5px;
+    color: red;
+    font-weight: 900;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    text-decoration: none;
+    list-style: none;
+}
+
+.l-header > .container > span {
+    color: red;
+    font-size: 3.125rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.navbar > ul > li:hover, a:hover {
+    color: yellow;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .1);
+}
+
+.sunny {
+    margin-top: 5px;
+    height: 120px;
+    z-index: 1;
+}
+
+.merry {
+    width: 95px;
+    z-index: 2;
+}
+
+
+/* Estilização do banner */
+.banner {
+    align-items: center;
+    align-content: space-between;
+    background-image: url('Assents/fundo-banner.png');
+    background-size: cover;
+    display: flex;
+    grid-area: banner;
+    height: calc(100vh - 100px);
+    justify-content: center;
+    flex-direction: column;
+    padding: 70px 120px 70px 120px;
+}
+
+.banner > h2 {
+    color: rgba(94, 33, 41, 1);
+    font-size: 4rem;
+    font-weight: 900;
+    text-shadow: 0 0 0.625rem white;
+}
+
+.banner > span {
+    text-align: justify;
+    color: pink;
+    font-size: 3rem;
+    font-weight: 900;
+    text-shadow: 0 0 0.625rem black;
+}
+
+
+/* Estilização section */
+.sobre-one-piece {
+    padding: 70px 120px 70px 120px;
+    height: 100vh;
+    background-image: url('Assents/fundo-section1.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    grid-area: section;
+}
+
+.sobre-one-piece > h2 {
+    color: black;
+    font-weight: 700;
+    font-size: 3rem;
+    text-shadow: 0 0 0.625rem white;
+}
+
+.sobre-one-piece > p {
+    color: black;
+    font-weight: 700;
+    font-size: 2rem;
+    text-align: justify;
+    text-shadow: 0 0 0.625rem white;
+    margin-bottom: 30px;
+}
+
+.video-introducao {
+    height: 100vh;
+    background-image: url('Assents/fundo-video.png');
+    background-size: cover;
+    background-position-y: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.video-introducao > h2 {
+    color: red;
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+video {
+    border-radius: 0.625rem;
+    width: 800px;
+}
+
+/* Estilização footer */
+.l-footer {
+    border-top: 1px solid black;
+    font-size: 1.5rem;
+    background-color: #e7b675;
+    height: 20vh;
+    grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

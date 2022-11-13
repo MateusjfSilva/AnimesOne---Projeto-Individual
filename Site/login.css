@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+
+* {
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.all-items {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgba(0, 0, 0, .95);
+}
+
+.left-login {
+    background-color: rgba(0, 0, 0, 0);
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-login > img {
+    width: 700px;
+    align-self: center;
+    margin-bottom: 40px;
+}
+
+.left-login > h2, span {
+    text-align: center;
+    color: rgba(238, 173, 45, 1);
+    font-weight: 900;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.formulario {
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0);
+    background-size: cover;
+    background-position-y: center;
+    background-position-x: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    width: 40vw;
+}
+
+.container {
+    border-radius: 15px;
+    box-shadow: 3px 3px 5px rgba(120, 120, 120, .4);
+    padding: 25px;
+    background-color: rgba(25, 25, 25, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+    width: 400px;
+}
+
+.container > h2 {
+    color: rgba(238, 173, 45, 1);
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.container > button {
+    font-weight: 900;
+    border: none;
+    border-radius: 10px;
+    height: 50px;
+    margin-top: 5px;
+    width: 120px;
+}
+
+.container > button:hover {
+    background-color: rgba(238, 173, 45, 1);
+    cursor: pointer;
+}
+
+.l-campos {
+    width: 250px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.l-campos > span {
+    text-align: start;
+    color: silver;
+    font-size: 0.9rem;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+.l-campos > input {
+    align-self: center;
+    background-color: grey;
+    box-shadow: 5px 8px 5px rgba(46, 46, 46, .4);
+    color: black;
+    text-align: center;
+    font-size: 1rem;
+    width: 250px;
+    height: 42px;
+    border: none;
+    border-bottom: 2px solid rgba(238, 173, 45, 1);
+    border-radius: 5px;
+    outline: none;
+}
+
+input::placeholder {
+    color: black;
+  }

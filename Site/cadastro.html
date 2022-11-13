@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cadastro.css">
+    <link rel="icon" href="Assents/logo.png">
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <div class="all-items">
+        <div class="left-login">
+            <h2>Cadastre-se</h2>
+            <span>e acompanhe o futuro dos mugiwaras!</span>
+            <img src="Assents/mugiwaras-futuro.png" alt="">
+        </div>
+    <div class="formulario">
+        <div class="container">
+            <h2>Cadastro</h2>
+            <div class="l-campos">
+                <span>Digite seu nickname:</span>
+                <input autofocus id="ipt_nick_name" type="text" placeholder="No mínimo 4 caracteres">
+                <div id="validacao_nick"></div>
+            </div>
+            <div class="l-campos">
+                <span>Digite seu e-mail:</span>
+                <input id="ipt_email" type="text" placeholder="seuemail@dominio.com">
+                <div id="validacao_email"></div>
+            </div>
+            <div class="l-campos">
+                <span>Digite sua senha:</span>
+                <input id="ipt_senha" type="password" placeholder="********" minlength="8" maxlength="64">
+                <div id="validacao_senha"></div>
+            </div>
+            <div class="l-campos">
+                <span>Confirme sua senha:</span>
+                <input id="ipt_confirmar_senha" type="password" placeholder="********" minlength="8" maxlength="64">
+                <div id="validacao_conf_senha"></div>
+            </div>
+            <button onclick="" id="btn_cadastro">CADASTRAR</button>
+        </div>
+    </div>
+</body>
+</html>
