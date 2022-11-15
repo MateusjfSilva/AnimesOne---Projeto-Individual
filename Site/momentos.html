@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="momentos.css">
+    <link rel="icon" href="Assents/logo.png">
+    <title>Momentos</title>
+</head>
+
+<body>
+    <div class="l-grid">
+        <header class="l-header">
+            <img class="merry" src="Assents/merry.png" alt="">
+            <div class="container">
+                <img src="Assents/logo_colorida.png" alt="logo de One Piece em preto e branco">
+                <span>Tales</span>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a onclick="">FAVORITOS</a></li>
+                    <li><a href="index.html">SAIR</a></li>
+                </ul>
+            </nav>
+            <img class="sunny" src="Assents/sunny.png" alt="">
+        </header>
+
+        <aside class="l-aside">
+                <h2>Momentos Marcantes</h2>
+                <select class="slt-ordenar" id="select-ordenar">
+                    <option value="0">ORDENAR POR</option>
+                    <option value="1">NOME</option>
+                    <option value="2">NOTA</option>
+                </select>
+        </aside>
+
+        <section>
+            <main class="l-main">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="Assents-cards/binks-sake.jpg" width="100%" alt="">
+                        <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/binks-sake.mp4')">
+                    </div>
+                    <span>Bink's Sake</span>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="Assents-cards/caminhada-para-franky-house.jpg" width="100%" alt="">
+                        <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/caminhada-para-franky-house.mp4')">
+                    </div>
+                    <span>Caminhada para a Franky House</span>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="Assents-cards/jinbe-doa-sangue-para-luffy.jpg" width="100%" alt="">
+                        <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/jinbe-doa-sangue-para-luffy.mp4')">
+                    </div>
+                    <span>Jinbe doa sangue para Luffy</span>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="Assents-cards/Luffy-recruta-chopper.jpg" width="100%" alt="">
+                        <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/Luffy-recruta-chopper.mp4')">
+                    </div>
+                    <span>Luffy chama Chopper para o bando</span>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="Assents-cards/luffy-recruta-franky.jpg" width="100%" alt="">
+                        <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/luffy-recruta-franky.mp4')">
+                    </div>
+                    <span>Luffy chama Franky para o bando</span>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="Assents-cards/luffy-recruta-zoro.jpg" width="100%" alt="">
+                        <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/luffy-recruta-zoro.mp4')">
+                    </div>
+                    <span>Luffy chama Zoro para o bando</span>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="Assents-cards/nami-pede-sorroco-a-luffy.jpg" width="100%" alt="">
+                        <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/nami-pede-sorroco-a-luffy.mp4')">
+                    </div>
+                    <span>Nami - Luffy, me ajuda...</span>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="Assents-cards/robin-quero-viver.jpg" width="100%" alt="">
+                        <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/robin-quero-viver.mp4')">
+                    </div>
+                    <span>Robin - Eu quero viver!</span>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="Assents-cards/sanji-quer-voltar-para-o-sunny.jpg" width="100%" alt="">
+                        <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/sanji-quer-voltar-para-o-sunny.mp4')">
+                    </div>
+                    <span>Sanji - Eu quero voltar para o Sunny!</span>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="Assents-cards/usopp-sai-do-bando.jpg" width="100%" alt="">
+                        <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/usopp-sai-bando.mp4')">
+                    </div>
+                    <span>Usopp sai do bando</span>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="Assents-cards/usopp-volta-para-o-bando.jpg" width="100%" alt="">
+                        <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/usopp-volta-para-o-bando.mp4')">
+                    </div>
+                    <span>Usopp se desculpa e volta para o bando</span>
+                </div>
+            </main>
+        </section>
+
+        <div class="video-player" id="player_video">
+            <video width="100%" controls autoplay id="meuVideo">
+                <source src="Assents/videos/binks-sake.mp4" type="video/mp4">
+            </video>
+            <img src="Assents-cards/close-button.png" class="close-btn" alt="Botão para fechar o video" onclick="closeVideo()">
+        </div>
+
+        <footer>
+            <div class="l-footer">
+                <span>Desenvolvido por um aluno SPTech fã de One Piece</span>
+                <span>Projeto Individual de Mateus Joaquim ₢</span>
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+</html>
+<script>
+    var videoPlayer = document.getElementById("player_video");
+    var video = document.getElementById("meuVideo");
+
+    function closeVideo() {
+        videoPlayer.style.display = "none";
+        video.pause();
+    }
+    
+    function playVideo(file) {
+        video.src = file;
+        videoPlayer.style.display = "block";
+    }
+</script>

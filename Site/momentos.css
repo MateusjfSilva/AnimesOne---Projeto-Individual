@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+
+* {
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Layout da página */
+.l-grid {
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    grid-template-areas: "header header header"
+                        " . aside . "
+                        " . section . "
+                        "footer footer footer";
+}
+
+body {
+    background-color: rgba(0, 0, 0, .95);
+}
+
+
+/* Estilização do header */
+.l-header {
+    height: 100px;
+    background-color: rgba(0, 0, 0, 1);
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    grid-area: header;
+    box-shadow: 0px 0px 10px black;
+    border-bottom: 2px solid white;
+}
+
+.container {
+    width: 500px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.container>img {
+    width: 170px;
+}
+
+.navbar {
+    margin: 0;
+    width: 400px;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+li>a {
+    font-size: 1.2rem;
+    padding: 5px;
+    color: red;
+    font-weight: 900;
+    text-decoration: none;
+    list-style: none;
+}
+
+li {
+    padding: 5px;
+    background-color: rgba(30, 30, 30, 1);
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgba(120, 120, 120, .4);
+    list-style: none;
+}
+
+.l-header .container>span {
+    color: red;
+    font-size: 3.125rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.navbar>ul>li:hover {
+    color: yellow;
+    cursor: pointer;
+    background-color: rgba(40, 40, 40, 1);
+}
+
+.sunny {
+    margin-top: 5px;
+    margin-right: 20px;
+    height: 120px;
+    z-index: 1;
+}
+
+.merry {
+    margin-left: 20px;
+    width: 95px;
+    z-index: 2;
+}
+
+/* Estilização aside, e select */
+.l-aside {
+    width: 100%;
+    height: 10vh;
+    grid-area: aside;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.l-aside>h2 {
+    color: gold;
+    font-size: 2.5rem;
+    position: absolute;
+    right: auto;
+    top: auto;
+}
+
+.slt-ordenar {
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(120, 120, 120, .4);
+    font-size: 1rem;
+    color: gold;
+    background-color: rgba(30, 30, 30, 1);
+    text-align: center;
+    min-width: 135px;
+    margin: 15px 0px;
+    position: absolute;
+    right: 50px;
+    top: auto;
+}
+
+/* Estilização section, main/cards */
+section {
+    overflow: auto;
+    height: calc(90vh - 100px);
+    grid-area: section;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(40, 40, 40, 1);
+}
+
+.l-main {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background-color: rgba(30, 30, 30, 1);
+    border-radius: 15px;
+    
+}
+
+.card {
+    color: white;
+    font-size: 1.5rem;
+    flex-basis: 40%;
+    min-width: 230px;
+    text-align: center;
+    background-color: rgba(40, 40, 40, 1);
+    box-shadow: 0px 0px 5px rgba(120, 120, 120, .4);
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+.card-img {
+    width: 100%;
+    margin: auto;
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.play-bnt {
+    width: 60px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+/* Modal video */
+.video-player {
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+video:focus {
+    outline: none;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    cursor: pointer;
+}
+
+/* Estilização footer */
+footer {
+    grid-area: footer;
+}
+
+footer > .l-footer {
+    color: white;
+    border-top: 1px solid white;
+    font-size: 1.2rem;
+    background-color: rgba(0, 0, 0, 1);
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
