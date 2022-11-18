@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../Public/css/style.css">
     <link rel="icon" href="Assents/logo.png">
     <title>One Piece Tales</title>
 </head>
@@ -33,10 +33,10 @@
             <div class="l-banner">
                 <div class="slider">
                     <div class="slides">
-                        <input type="radio" name="radio-btn" id="radio1" placeholder="checks">
-                        <input type="radio" name="radio-btn" id="radio2" placeholder="checks">
-                        <input type="radio" name="radio-btn" id="radio3" placeholder="checks">
-                        <input type="radio" name="radio-btn" id="radio4" placeholder="checks">
+                        <input checked type="radio" name="radio-btn" id="radio_1" placeholder="checks">
+                        <input type="radio" name="radio-btn" id="radio_2" placeholder="checks">
+                        <input type="radio" name="radio-btn" id="radio_3" placeholder="checks">
+                        <input type="radio" name="radio-btn" id="radio_4" placeholder="checks">
 
                         <div class="slide first">
                             <img src="Assents-cards/robin-quero-viver.jpg" alt="Imagem de Gold D. Roger">
@@ -50,20 +50,6 @@
                         <div class="slide">
                             <img src="Assents-cards/soco-em-bellamy.jpg" alt="Imagem de Gold D. Roger">
                         </div>
-                    </div>
-
-                    <div class="navigation-auto">
-                        <div class="btn-auto1"></div>
-                        <div class="btn-auto2"></div>
-                        <div class="btn-auto3"></div>
-                        <div class="btn-auto4"></div>
-                    </div>
-
-                    <div class="manual-navigation">
-                        <label for="radio1" class="manual-btn"></label>
-                        <label for="radio2" class="manual-btn"></label>
-                        <label for="radio3" class="manual-btn"></label>
-                        <label for="radio4" class="manual-btn"></label>
                     </div>
 
                 </div>
@@ -92,7 +78,7 @@
                 </div>
                 <div class="text">
                     <h2>Sinopse</h2>
-                    <p>One Piece conta as aventuras de Monkey D. Luffy, um jovem cujo corpo ganhou as propriedades de borracha após ter comido uma akuma no mi (fruta do diabo) acidentalmente. Com sua tripulação, os Piratas do Chapéu de Palha, Luffy explora a Grand Line em busca do tesouro mais procurado do mundo, o "One Piece", a fim de se tornar o próximo Rei dos Piratas.</p>
+                    <p>One Piece conta as aventuras de Monkey D. Luffy, um jovem cujo corpo ganhou as propriedades de borracha após ter comido uma akuma no mi acidentalmente. Com sua tripulação, os Piratas do Chapéu de Palha, Luffy explora a Grand Line em busca do tesouro mais procurado do mundo, o "One Piece", para se tornar o próximo Rei dos Piratas.</p>
                 </div>
             </div>
 
@@ -116,7 +102,11 @@
 </html>
 <script>
 var count = 1;
-var ipt = document.getElementById("radio1").checked = true;
+var ipt = document.getElementById("radio_1").checked = true;
+
+if (ipt.checked) {
+    document.getElementsByClassName("btn-auto1").style.backgroundColor = "white";
+}
     
 setInterval( function(){
     nextImage();
@@ -128,7 +118,7 @@ function nextImage() {
     if (count>4) {
         count = 1;
     }
-    ipt = document.getElementById("radio"+count).checked = true;
+    ipt = document.getElementById("radio_"+count).checked = true;
     
 }
 </script>

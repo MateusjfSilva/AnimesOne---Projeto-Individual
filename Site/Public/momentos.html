@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="momentos.css">
+    <link rel="stylesheet" href="../Public/css/momentos.css">
     <link rel="icon" href="Assents/logo.png">
     <title>Momentos</title>
 </head>
@@ -20,19 +20,19 @@
             </div>
             <nav class="navbar">
                 <ul>
-                    <li><a onclick="">FAVORITOS</a></li>
-                    <li><a href="index.html">SAIR</a></li>
+                    <li><a href="../Public/index.html">SAIR</a></li>
                 </ul>
             </nav>
             <img class="sunny" src="Assents/sunny.png" alt="">
         </header>
 
         <aside class="l-aside">
-                <h2>Momentos Marcantes</h2>
+                <h2>Lembraças</h2>
                 <select title="seletor de ordem de agrupamento" class="slt-ordenar" id="select-ordenar">
-                    <option value="0">ORDENAR POR</option>
-                    <option value="1">NOME</option>
-                    <option value="2">NOTA</option>
+                    <option value="0">Exibir</option>
+                    <option value="0">Chapéus de Palha</option>
+                    <option value="1">Aberturas</option>
+                    <option value="2">Momentos</option>
                 </select>
         </aside>
 
@@ -43,77 +43,110 @@
                         <img src="Assents-cards/binks-sake.jpg" width="100%" alt="">
                         <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/binks-sake.mp4')">
                     </div>
-                    <span>Bink's Sake</span>
+                    <div class="text-cards">
+                        <span>Bink's Sake</span>
+                        <div class="nota"> <span>NOTA MÉDIA: </span><span id="nota1" class="valor-nota"></span></div>
+                    </div>
                 </div>
                 <div class="card">
                     <div class="card-img">
                         <img src="Assents-cards/caminhada-para-franky-house.jpg" width="100%" alt="">
                         <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/caminhada-para-franky-house.mp4')">
                     </div>
-                    <span>Caminhada para a Franky House</span>
+                    <div class="text-cards">
+                        <span>Caminhada para a Franky House</span>
+                        <div class="nota"> <span>NOTA MÉDIA: </span><span id="nota2" class="valor-nota">10</span></div>
+                    </div>
                 </div>
                 <div class="card">
                     <div class="card-img">
                         <img src="Assents-cards/jinbe-doa-sangue-para-luffy.jpg" width="100%" alt="">
                         <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/jinbe-doa-sangue-para-luffy.mp4')">
                     </div>
-                    <span>Jinbe doa sangue para Luffy</span>
+                    <div class="text-cards">
+                        <span>Jinbe doa sangue para Luffy</span>
+                        <div class="nota"> <span>NOTA MÉDIA: </span><span id="nota3" class="valor-nota"></span></div>
+                    </div>
                 </div>
                 <div class="card">
                     <div class="card-img">
                         <img src="Assents-cards/Luffy-recruta-chopper.jpg" width="100%" alt="">
                         <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/Luffy-recruta-chopper.mp4')">
                     </div>
-                    <span>Luffy chama Chopper para o bando</span>
+                    <div class="text-cards">
+                        <span>Luffy chama Chopper para o bando</span>
+                        <div class="nota"> <span>NOTA MÉDIA: </span><span id="nota4" class="valor-nota"></span></div>
+                    </div>
                 </div>
                 <div class="card">
                     <div class="card-img">
                         <img src="Assents-cards/luffy-recruta-franky.jpg" width="100%" alt="">
                         <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/luffy-recruta-franky.mp4')">
                     </div>
-                    <span>Luffy chama Franky para o bando</span>
+                    <div class="text-cards">
+                        <span>Luffy chama Franky para o bando</span>
+                        <div class="nota"> <span>NOTA MÉDIA: </span><span id="nota5" class="valor-nota"></span></div>
+                    </div>
                 </div>
                 <div class="card">
                     <div class="card-img">
                         <img src="Assents-cards/luffy-recruta-zoro.jpg" width="100%" alt="">
                         <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/luffy-recruta-zoro.mp4')">
                     </div>
-                    <span>Luffy chama Zoro para o bando</span>
+                    <div class="text-cards">
+                        <span>Luffy chama Zoro para o bando</span>
+                        <div class="nota"> <span>NOTA MÉDIA: </span><span id="nota6" class="valor-nota"></span></div>
+                    </div>
                 </div>
                 <div class="card">
                     <div class="card-img">
                         <img src="Assents-cards/nami-pede-sorroco-a-luffy.jpg" width="100%" alt="">
                         <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/nami-pede-sorroco-a-luffy.mp4')">
                     </div>
-                    <span>Nami - Luffy, me ajuda...</span>
+                    <div class="text-cards">
+                        <span>Nami - Luffy, me ajuda...</span>
+                        <div class="nota"> <span>NOTA MÉDIA: </span><span id="nota7" class="valor-nota"></span></div>
+                    </div>
                 </div>
                 <div class="card">
                     <div class="card-img">
                         <img src="Assents-cards/robin-quero-viver.jpg" width="100%" alt="">
                         <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/robin-quero-viver.mp4')">
                     </div>
-                    <span>Robin - Eu quero viver!</span>
+                    <div class="text-cards">
+                        <span>Robin - Eu quero viver!</span>
+                        <div class="nota"> <span>NOTA MÉDIA: </span><span id="nota8" class="valor-nota"></span></div>
+                    </div>
                 </div>
                 <div class="card">
                     <div class="card-img">
                         <img src="Assents-cards/sanji-quer-voltar-para-o-sunny.jpg" width="100%" alt="">
                         <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/sanji-quer-voltar-para-o-sunny.mp4')">
                     </div>
-                    <span>Sanji - Eu quero voltar para o Sunny!</span>
+                    <div class="text-cards">
+                        <span>Sanji - Eu quero voltar para o Sunny!</span>
+                        <div class="nota"> <span>NOTA MÉDIA: </span><span id="nota9" class="valor-nota"></span></div>
+                    </div>
                 </div>
                 <div class="card">
                     <div class="card-img">
                         <img src="Assents-cards/usopp-sai-do-bando.jpg" width="100%" alt="">
                         <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/usopp-sai-bando.mp4')">
                     </div>
-                    <span>Usopp sai do bando</span>
+                    <div class="text-cards">
+                        <span>Usopp sai do bando</span>
+                        <div class="nota"> <span>NOTA MÉDIA: </span><span id="nota10" class="valor-nota"></span></div>
+                    </div>
                 </div>
                 <div class="card">
                     <div class="card-img">
                         <img src="Assents-cards/usopp-volta-para-o-bando.jpg" width="100%" alt="">
                         <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/usopp-volta-para-o-bando.mp4')">
                     </div>
-                    <span>Usopp se desculpa e volta para o bando</span>
+                    <div class="text-cards">
+                        <span>Usopp se desculpa e volta para o bando</span>
+                        <div class="nota"> <span>NOTA MÉDIA: </span><span id="nota11" class="valor-nota"></span></div>
+                    </div>
                 </div>
             </main>
         </section>
@@ -149,4 +182,8 @@
         video.src = file;
         videoPlayer.style.display = "block";
     }
+</script>
+
+<script>
+    
 </script>
