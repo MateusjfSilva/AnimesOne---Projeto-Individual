@@ -31,9 +31,41 @@
 
         <section>
             <div class="l-banner">
-                <div class="img">
-                    <h2>MUGIWARAS</h2>
-                    <img src="Assents/mugis.png" alt="" style="height: 300px;">
+                <div class="slider">
+                    <div class="slides">
+                        <input type="radio" name="radio-btn" id="radio1" placeholder="checks">
+                        <input type="radio" name="radio-btn" id="radio2" placeholder="checks">
+                        <input type="radio" name="radio-btn" id="radio3" placeholder="checks">
+                        <input type="radio" name="radio-btn" id="radio4" placeholder="checks">
+
+                        <div class="slide first">
+                            <img src="Assents-cards/robin-quero-viver.jpg" alt="Imagem de Gold D. Roger">
+                        </div>
+                        <div class="slide">
+                            <img src="Assents-cards/ace-morre.jpg" alt="Imagem de Gold D. Roger">
+                        </div>
+                        <div class="slide">
+                            <img src="Assents-cards/quando-as-pessoas-morrem.jpg" alt="Imagem de Gold D. Roger">
+                        </div>
+                        <div class="slide">
+                            <img src="Assents-cards/soco-em-bellamy.jpg" alt="Imagem de Gold D. Roger">
+                        </div>
+                    </div>
+
+                    <div class="navigation-auto">
+                        <div class="btn-auto1"></div>
+                        <div class="btn-auto2"></div>
+                        <div class="btn-auto3"></div>
+                        <div class="btn-auto4"></div>
+                    </div>
+
+                    <div class="manual-navigation">
+                        <label for="radio1" class="manual-btn"></label>
+                        <label for="radio2" class="manual-btn"></label>
+                        <label for="radio3" class="manual-btn"></label>
+                        <label for="radio4" class="manual-btn"></label>
+                    </div>
+
                 </div>
                 <div class="text">
                     <h2>NOSTALGIA GARANTIDA</h2>
@@ -45,7 +77,7 @@
             <div class="l-banner-historia">
                 <div class="img">
                     <h2>Eiichiro Oda</h2>
-                    <img src="Assents/Eiichiro-Oda.jpg" alt="" style="height: 300px;">
+                    <img src="Assents/Eiichiro-Oda.jpg" alt="/foto de Eiichiro Oda" style="height: 300px;">
                 </div>
                 <div class="text row-reverse">
                     <h2>História</h2>
@@ -56,7 +88,7 @@
             <div class="l-banner-sinopse">
                 <div class="img">
                     <h2>Monkey D. Luffy</h2>
-                    <img style="height: 450px;" src="Assents/luffy.png" alt="">
+                    <img style="height: 450px;" src="Assents/luffy.png" alt="/foto de Luffy">
                 </div>
                 <div class="text">
                     <h2>Sinopse</h2>
@@ -82,3 +114,21 @@
 </body>
 
 </html>
+<script>
+var count = 1;
+var ipt = document.getElementById("radio1").checked = true;
+    
+setInterval( function(){
+    nextImage();
+}, 5000)
+
+function nextImage() {
+    
+    count++;
+    if (count>4) {
+        count = 1;
+    }
+    ipt = document.getElementById("radio"+count).checked = true;
+    
+}
+</script>

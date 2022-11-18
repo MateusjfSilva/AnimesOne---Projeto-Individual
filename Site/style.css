@@ -104,7 +104,7 @@ li {
 
 /* Estilização do banner inicial*/
 .l-banner {
-    justify-content: space-around;
+    justify-content: space-evenly;
     background-color: rgba(0, 0, 0, .9);
     background-size: cover;
     display: flex;
@@ -157,6 +157,115 @@ li {
     margin-bottom: 15px;
 }
 
+/* Slider */
+.slider {
+    margin: auto 0;
+    width: 640px;
+    height: 360px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.slides {
+    width: 400%;
+    height: 360px;
+    display: flex;
+}
+
+.slides input {
+    display: none;
+}
+
+label {
+    display: block;
+}
+
+.slide {
+    width: 25%;
+    position: relative;
+    transition: 2s;
+}
+
+.slide img {
+    width: 640px;
+}
+
+.manual-navigation {
+    position:absolute;
+    width: 640px;
+    margin-top: -25px;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn {
+    background-color: none;
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.manual-btn:not(:last-child) {
+    margin-right: 40px;
+}
+
+.manual-btn:hover {
+    background-color: white;
+}
+
+#radio1:checked ~ .first {
+    margin-left: 0;
+}
+
+#radio2:checked ~ .first {
+    margin-left: -25%;
+}
+
+#radio3:checked ~ .first {
+    margin-left: -50%;
+}
+
+#radio4:checked ~ .first {
+    margin-left: -75%;
+}
+
+.navigation-auto div {
+    border: 2px solid #20a6ff;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.navigation-auto {
+    position: absolute;
+    width: 640px;
+    margin-top: -25px;
+    display: flex;
+    justify-content: center;
+}
+
+.navigation-auto div:not(:Last-child) {
+    margin-right: 40px;
+}
+
+#radio1:checked ~ .navigation-auto .btn-auto1 {
+    background-color: white;
+}
+
+#radio2:checked ~ .navigation-auto .btn-auto2 {
+    background-color: white;
+}
+
+#radio3:checked ~ .navigation-auto .btn-auto3 {
+    background-color: white;
+}
+
+#radio4:checked ~ .navigation-auto .btn-auto4 {
+    background-color: white;
+}
 
 /* banner eiichiro oda */
 .l-banner-historia {
