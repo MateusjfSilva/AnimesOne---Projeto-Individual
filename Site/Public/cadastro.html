@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Public/css/cadastro.css">
+    <link rel="stylesheet" href="css/cadastro.css">
     <link rel="icon" href="Assents/logo.png">
     <title>Cadastro</title>
 </head>
@@ -19,6 +19,7 @@
         </div>
     <div class="formulario">
         <div class="container">
+            <a href="index.html"><img src="Assents/back-icon.png" alt="icon para voltar a home page"></a>
             <h2>Cadastro</h2>
             <div class="l-campos">
                 <span>Digite seu nickname:</span>
@@ -40,8 +41,74 @@
                 <input id="ipt_confirmar_senha" type="password" placeholder="********" minlength="8" maxlength="64">
                 <div id="validacao_conf_senha"></div>
             </div>
-            <button onclick="" id="btn_cadastro">CADASTRAR</button>
+            <button onclick="cadastrar()" id="btn_cadastro">CADASTRAR</button>
+            <span id="erro_geral"></span>
         </div>
     </div>
 </body>
 </html>
+<script>
+    function cadastrar() {
+        // aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nickVar = ipt_nick_name.value;
+        var emailVar = ipt_email.value;
+        var senhaVar = ipt_senha.value;
+        var validacaoSenhaVar = validacao_conf_senha.value;
+
+        if (nickVar == "" || emailVar == "" || senhaVar == "" || validacaoSenhaVar == "") {
+            erro_geral.innerHTML = `Um ou mais campos em branco`;
+
+            // finalizarAguardar();
+            return false;
+        }
+        else {
+            // setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nickServer: nickVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                // cardErro.style.display = "block";
+
+                erro_geral.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+                
+                limparFormulario();
+                // finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    // function sumirMensagem() {
+    //     cardErro.style.display = "none"
+    // }
+
+</script>

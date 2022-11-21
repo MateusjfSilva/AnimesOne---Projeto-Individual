@@ -5,157 +5,86 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Public/css/momentos.css">
+    <link rel="stylesheet" href="css/momentos.css">
     <link rel="icon" href="Assents/logo.png">
+    <script src="../js/funcoes.js"></script>
     <title>Momentos</title>
 </head>
 
-<body>
+<body onload="carregarCards()">
     <div class="l-grid">
         <header class="l-header">
             <img class="merry" src="Assents/merry.png" alt="">
             <div class="container">
-                <img src="Assents/logo_colorida.png" alt="logo de One Piece em preto e branco">
+                <img src="../Assents/logo_colorida.png" alt="logo de One Piece em preto e branco">
                 <span>Tales</span>
             </div>
             <nav class="navbar">
                 <ul>
-                    <li><a href="../Public/index.html">SAIR</a></li>
+                    <li onclick="limparSessao()"><a href="login.html">SAIR</a></li>
                 </ul>
             </nav>
             <img class="sunny" src="Assents/sunny.png" alt="">
         </header>
 
         <aside class="l-aside">
+            <h2>Olá, <span id="nickname"></span></h2>
+            <div class="titulo_e_frase">
                 <h2>Lembraças</h2>
-                <select title="seletor de ordem de agrupamento" class="slt-ordenar" id="select-ordenar">
-                    <option value="0">Exibir</option>
-                    <option value="0">Chapéus de Palha</option>
-                    <option value="1">Aberturas</option>
-                    <option value="2">Momentos</option>
-                </select>
+                <span id="frase_usuario">Escreva aqui sua frase favorita do anime</span>
+            </div>
+            <select title="seletor de ordem de agrupamento" class="slt-ordenar" id="select-ordenar">
+                <option value="0">Exibir</option>
+                <option value="1">Aberturas</option>
+                <option value="2">Lembranças</option>
+            </select>
         </aside>
 
         <section>
-            <main class="l-main">
-                <div class="card">
-                    <div class="card-img">
-                        <img src="Assents-cards/binks-sake.jpg" width="100%" alt="">
-                        <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/binks-sake.mp4')">
-                    </div>
-                    <div class="text-cards">
-                        <span>Bink's Sake</span>
-                        <div class="nota"> <span>NOTA MÉDIA: </span><span id="nota1" class="valor-nota"></span></div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img">
-                        <img src="Assents-cards/caminhada-para-franky-house.jpg" width="100%" alt="">
-                        <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/caminhada-para-franky-house.mp4')">
-                    </div>
-                    <div class="text-cards">
-                        <span>Caminhada para a Franky House</span>
-                        <div class="nota"> <span>NOTA MÉDIA: </span><span id="nota2" class="valor-nota">10</span></div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img">
-                        <img src="Assents-cards/jinbe-doa-sangue-para-luffy.jpg" width="100%" alt="">
-                        <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/jinbe-doa-sangue-para-luffy.mp4')">
-                    </div>
-                    <div class="text-cards">
-                        <span>Jinbe doa sangue para Luffy</span>
-                        <div class="nota"> <span>NOTA MÉDIA: </span><span id="nota3" class="valor-nota"></span></div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img">
-                        <img src="Assents-cards/Luffy-recruta-chopper.jpg" width="100%" alt="">
-                        <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/Luffy-recruta-chopper.mp4')">
-                    </div>
-                    <div class="text-cards">
-                        <span>Luffy chama Chopper para o bando</span>
-                        <div class="nota"> <span>NOTA MÉDIA: </span><span id="nota4" class="valor-nota"></span></div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img">
-                        <img src="Assents-cards/luffy-recruta-franky.jpg" width="100%" alt="">
-                        <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/luffy-recruta-franky.mp4')">
-                    </div>
-                    <div class="text-cards">
-                        <span>Luffy chama Franky para o bando</span>
-                        <div class="nota"> <span>NOTA MÉDIA: </span><span id="nota5" class="valor-nota"></span></div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img">
-                        <img src="Assents-cards/luffy-recruta-zoro.jpg" width="100%" alt="">
-                        <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/luffy-recruta-zoro.mp4')">
-                    </div>
-                    <div class="text-cards">
-                        <span>Luffy chama Zoro para o bando</span>
-                        <div class="nota"> <span>NOTA MÉDIA: </span><span id="nota6" class="valor-nota"></span></div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img">
-                        <img src="Assents-cards/nami-pede-sorroco-a-luffy.jpg" width="100%" alt="">
-                        <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/nami-pede-sorroco-a-luffy.mp4')">
-                    </div>
-                    <div class="text-cards">
-                        <span>Nami - Luffy, me ajuda...</span>
-                        <div class="nota"> <span>NOTA MÉDIA: </span><span id="nota7" class="valor-nota"></span></div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img">
-                        <img src="Assents-cards/robin-quero-viver.jpg" width="100%" alt="">
-                        <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/robin-quero-viver.mp4')">
-                    </div>
-                    <div class="text-cards">
-                        <span>Robin - Eu quero viver!</span>
-                        <div class="nota"> <span>NOTA MÉDIA: </span><span id="nota8" class="valor-nota"></span></div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img">
-                        <img src="Assents-cards/sanji-quer-voltar-para-o-sunny.jpg" width="100%" alt="">
-                        <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/sanji-quer-voltar-para-o-sunny.mp4')">
-                    </div>
-                    <div class="text-cards">
-                        <span>Sanji - Eu quero voltar para o Sunny!</span>
-                        <div class="nota"> <span>NOTA MÉDIA: </span><span id="nota9" class="valor-nota"></span></div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img">
-                        <img src="Assents-cards/usopp-sai-do-bando.jpg" width="100%" alt="">
-                        <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/usopp-sai-bando.mp4')">
-                    </div>
-                    <div class="text-cards">
-                        <span>Usopp sai do bando</span>
-                        <div class="nota"> <span>NOTA MÉDIA: </span><span id="nota10" class="valor-nota"></span></div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-img">
-                        <img src="Assents-cards/usopp-volta-para-o-bando.jpg" width="100%" alt="">
-                        <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('Assents/videos/usopp-volta-para-o-bando.mp4')">
-                    </div>
-                    <div class="text-cards">
-                        <span>Usopp se desculpa e volta para o bando</span>
-                        <div class="nota"> <span>NOTA MÉDIA: </span><span id="nota11" class="valor-nota"></span></div>
-                    </div>
-                </div>
+            <main id="main_cards" class="l-main">
+
             </main>
+
+            <div id="formulario" class="formulario-modal">
+                <div class="container">
+                    <img onclick="fecharModal()" src="Assents/back-icon.png" alt="icon para voltar a home page">
+                    <h2>Avaliar</h2>
+                    <div class="l-campos">
+                        <span>Digite a nota:</span>
+                        <input autofocus id="ipt_nota" type="number" pattern="[0-9]"placeholder="De 0 a 10">
+                        <div id="validacao_nota"></div>
+                    </div>
+                    <div class="l-campos">
+                        <select title="videos" id="nota_lembranca">
+                            <option disabled selected>-- SELECIONE A LEMBRANÇA</option>
+                            <option value="1">Sanji quer voltar para o Sunny</option>
+                            <option value="2">Caminhada para Franky house</option>
+                            <option value="3">Robin - Eu quero viver!</option>
+                            <option value="4">Jinbe doa seu sangue à Luffy
+                            </option>
+                            <option value="5">Nami pede ajuda a Luffy que...</option>
+                            <option value="6">Luffy chama Franky para o bando</option>
+                            <option value="7">Luffy chama Zoro para o bando</option>
+                            <option value="8">Luffy chama Chopper para o bando</option>
+                            <option value="9">Bink's Sake</option>
+                            <option value="10">Usopp sai do bando</option>
+                            <option value="11">Usopp se pede desculpas e volta para o bando</option>
+                        </select>
+                        <div id="validacao_email"></div>
+                    </div>
+                    <button onclick="publicar(1)" id="btn_cadastro">AVALIAR</button>
+                    <span id="erro_geral"></span>
+                </div>
+            </div>
+
         </section>
 
         <div class="video-player" id="player_video">
-            <video width="100%" controls autoplay id="meuVideo">
-                <source src="Assents/videos/binks-sake.mp4" type="video/mp4">
+            <video width="100%" autoplay controls id="meuVideo">
+                <source src="" type="video/mp4">
             </video>
-            <img src="Assents-cards/close-button.png" class="close-btn" alt="Botão para fechar o video" onclick="closeVideo()">
+            <img src="Assents-cards/close-button.png" class="close-btn" alt="Botão para fechar o video"
+                onclick="closeVideo()">
         </div>
 
         <footer>
@@ -169,6 +98,83 @@
 </body>
 
 </html>
+<!-- script da lista e videos e exibição na tela -->
+<script>
+    var listaVideos = [{
+        titulo: "Sanji quer voltar para o Sunny",
+        imagem: "Assents-cards/sanji-quer-voltar-para-o-sunny.jpg",
+        urlVideo: "Assents/videos/sanji-quer-voltar-para-o-sunny.mp4"
+    }, {
+        titulo: "Caminhada para Franky house",
+        imagem: "Assents-cards/caminhada-para-franky-house.jpg",
+        urlVideo: "Assents/videos/caminhada-para-franky-house.mp4"
+    }, {
+        titulo: "Robin - Eu quero viver!",
+        imagem: "Assents-cards/robin-quero-viver.jpg",
+        urlVideo: "Assents/videos/robin-quero-viver.mp4"
+    }, {
+        titulo: "Jinbe doa seu sangue à Luffy",
+        imagem: "Assents-cards/jinbe-doa-sangue-para-luffy.jpg",
+        urlVideo: "Assents/videos/.mp4"
+    }, {
+        titulo: "Nami pede ajuda a Luffy",
+        imagem: "Assents-cards/nami-pede-sorroco-a-luffy.jpg",
+        urlVideo: "Assents/videos/nami-pede-sorroco-a-luffy.mp4"
+    }, {
+        titulo: "Luffy chama Franky para o bando",
+        imagem: "Assents-cards/luffy-recruta-franky.jpg",
+        urlVideo: "Assents/videos/luffy-recruta-franky.mp4"
+    }, {
+        titulo: "Luffy chama Zoro para o bando",
+        imagem: "Assents-cards/luffy-recruta-zoro.jpg",
+        urlVideo: "Assents/videos/luffy-recruta-zoro.mp4"
+    }, {
+        titulo: "Luffy chama Chopper para o bando",
+        imagem: "Assents-cards/Luffy-recruta-chopper.jpg",
+        urlVideo: "Assents/videos/Luffy-recruta-chopper.mp4"
+    }, {
+        titulo: "Bink's Sake",
+        imagem: "Assents-cards/binks-sake.jpg",
+        urlVideo: "Assents/videos/binks-sake.mp4"
+    }, {
+        titulo: "Usopp sai do bando",
+        imagem: "Assents-cards/usopp-sai-do-bando.jpg",
+        urlVideo: "Assents/videos/usopp-sai-bando.mp4"
+    }, {
+        titulo: "Usopp se pede desculpas e volta para o bando",
+        imagem: "Assents-cards/usopp-volta-para-o-bando.jpg",
+        urlVideo: "Assents/videos/usopp-volta-para-o-bando.mp4"
+    }];
+
+    function carregarCards() {
+        for (var index = 0; index < listaVideos.length; index++) {
+            var video = listaVideos[index]
+
+            main_cards.innerHTML += `
+            <div id="card${index}" class="card">
+                    <div class="card-img">
+                        <img src="${video.imagem}" width="100%" alt="">
+                        <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('${video.urlVideo}')">
+                    </div>
+                    <div class="text-cards">
+                        <span>${video.titulo}</span>
+                        <div class="nota"> <span>NOTA MÉDIA: </span><span class="valor-nota"></span></div>
+                        <div class="div-avaliar" id="avaliacao_nota">
+                            <button onclick="abrirModal()">Avaliar</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+
+    }
+
+    console.log(listaVideos);
+    // console.log(notas);
+</script>
+
+<!-- Modal script  e avaliação-->
 <script>
     var videoPlayer = document.getElementById("player_video");
     var video = document.getElementById("meuVideo");
@@ -177,13 +183,88 @@
         videoPlayer.style.display = "none";
         video.pause();
     }
-    
+
     function playVideo(file) {
         video.src = file;
         videoPlayer.style.display = "block";
     }
+
+    function fecharModal() {
+        for (var index = 0; index < listaVideos.length; index++) {
+            
+            formulario.style.display = "none";
+            document.getElementById("card"+index).style.display = "flex";
+        }
+    }
+
+    function abrirModal() {
+        for (var index = 0; index < listaVideos.length; index++) {
+
+        formulario.style.display = "flex";
+        document.getElementById("card"+index).style.display = "none";
+        }
+    }
+    nickname.innerHTML = sessionStorage.NOME_USUARIO;
+
+    
 </script>
 
+<!-- Publicar nota para momento -->
 <script>
-    
+    function publicar() {
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var idVar = nota_lembranca.value;
+        var select = nota_lembranca;
+        var tituloVar = select.options[select.selectedIndex].text;
+        var notaVar = ipt_nota.value;
+        var idUsuario = sessionStorage.ID_USUARIO;
+        
+
+        if (notaVar == "") {
+            alert("campo em branco")
+            return false;
+        }
+        else {
+            // setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch(`/avaliar/publicar/${idUsuario}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                idServer: idVar,
+                notaServer: notaVar,
+                tituloServer: tituloVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+
+                mensagem_erro.innerHTML = "Avaliação realizada com sucesso!";
+
+                setTimeout(() => {
+                    window.location = "momentos.html";
+                }, "2000")
+                
+                // limparFormulario();
+                // finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar a avaliação!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
+
+        return false;
+    }
 </script>

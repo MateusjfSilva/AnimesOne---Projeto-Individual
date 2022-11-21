@@ -49,6 +49,7 @@
 }
 
 .container {
+    position: relative;
     border-radius: 15px;
     box-shadow: 3px 3px 5px rgba(120, 120, 120, .4);
     padding: 25px;
@@ -59,6 +60,13 @@
     align-items: center;
     height: 350px;
     width: 400px;
+}
+
+.container img {
+    width: 12%;
+    position: absolute;
+    top: 5%;
+    right: 3%;
 }
 
 .container > h2 {
