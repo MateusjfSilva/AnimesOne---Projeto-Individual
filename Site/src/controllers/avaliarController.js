@@ -1,5 +1,25 @@
 var avaliarModel = require("../models/avaliarModel");
 
+function listar(req, res) {
+    var id = req.body.idServer;
+
+    if (id == undefined) {
+        res.status(400).send("Sua id está undefined!");
+    } else {
+
+    avaliarModel.listar().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+}
 
 function publicar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
@@ -38,6 +58,9 @@ function publicar(req, res) {
     }
 }
 
+
+
 module.exports = {
-    publicar
+    publicar,
+    listar
 }
