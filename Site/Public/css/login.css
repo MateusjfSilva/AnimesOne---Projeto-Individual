@@ -58,7 +58,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 350px;
+    height: 400px;
     width: 400px;
 }
 
@@ -92,7 +92,7 @@
 
 .l-campos {
     width: 250px;
-    height: 100px;
+    height: 85px;
     display: flex;
     flex-direction: column;
 }
@@ -123,3 +123,14 @@
 input::placeholder {
     color: black;
   }
+
+.cadastrado {
+    margin: 0;
+    padding-top: 15px;
+    font-size: 1rem;
+}
+
+.cadastrado a {
+    color: rgba(0, 139, 242, 1);
+    text-decoration: none;
+}

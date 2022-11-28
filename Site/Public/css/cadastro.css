@@ -56,9 +56,8 @@
     background-color: rgba(25, 25, 25, 1);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 550px;
+    height: 560px;
     width: 400px;
 }
 .container img {
@@ -70,9 +69,10 @@
 }
 
 .container > h2 {
+    padding-bottom: 15px;
+    margin: 0;
     color: rgba(0, 139, 242, 1);
     font-size: 2rem;
-    margin-bottom: 20px;
     text-align: center;
 }
 
@@ -92,7 +92,7 @@
 
 .l-campos {
     width: 250px;
-    height: 100px;
+    height: 85px;
     display: flex;
     flex-direction: column;
 }
@@ -123,3 +123,14 @@
 input::placeholder {
     color: black;
   }
+
+.cadastrado {
+    margin: 0;
+    padding-top: 15px;
+    font-size: 1rem;
+}
+
+.cadastrado a {
+    text-decoration: none;
+    color: rgba(238, 173, 45, 1);
+}

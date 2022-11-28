@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/cadastro.css">
     <link rel="icon" href="Assents/logo.png">
+    <script src="js/funcoes.js"></script>
     <title>Cadastro</title>
 </head>
 
@@ -42,7 +43,8 @@
                 <div id="validacao_conf_senha"></div>
             </div>
             <button onclick="cadastrar()" id="btn_cadastro">CADASTRAR</button>
-            <span id="erro_geral"></span>
+            <span class="cadastrado">Já é cadastrado? <a href="login.html">Clique aqui!</a></span>
+            <span id="erro_geral" class="cadastrado"></span>
         </div>
     </div>
 </body>

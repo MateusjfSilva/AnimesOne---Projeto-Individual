@@ -1,247 +1,249 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/momentos.css" />
-    <link rel="icon" href="Assents/logo.png" />
-    <script src="../js/funcoes.js"></script>
-    <title>Momentos</title>
-  </head>
 
-  <body onload="carregarCards()">
-    <div class="l-grid">
-      <header class="l-header">
-        <img class="merry" src="Assents/merry.png" alt="" />
-        <div class="container">
-          <img
-            src="../Assents/logo_colorida.png"
-            alt="logo de One Piece em preto e branco"
-          />
-          <span>Tales</span>
-        </div>
-        <nav class="navbar">
-          <ul>
-            <li onclick="limparSessao()"><a href="login.html">SAIR</a></li>
-          </ul>
-        </nav>
-        <img class="sunny" src="Assents/sunny.png" alt="" />
-      </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/momentos.css" />
+  <link rel="icon" href="Assents/logo.png" />
+  <script src="js/funcoes.js"></script>
+  <title>Momentos</title>
+</head>
 
-      <aside class="l-aside">
-        <h2>Olá, <span id="nickname"></span></h2>
-        <div class="titulo_e_frase">
-          <h2>Lembraças</h2>
-          <span id="frase_usuario"
-            >Escreva aqui sua frase favorita do anime</span
-          >
-        </div>
-        <select
-          title="seletor de ordem de agrupamento"
-          class="slt-ordenar"
-          id="select-ordenar"
-        >
-          <option value="0">Exibir</option>
-          <option value="1">Aberturas</option>
-          <option value="2">Lembranças</option>
-        </select>
-      </aside>
-
-      <section>
-        <main id="main_cards" class="l-main"></main>
-
-        <div id="formulario" class="formulario-modal">
-          <div class="container">
-            <img
-              onclick="fecharModal()"
-              src="Assents/back-icon.png"
-              alt="icon para voltar a home page"
-            />
-            <h2>Avaliar</h2>
-            <div class="l-campos">
-              <span>Digite a nota:</span>
-              <input
-                autofocus
-                id="ipt_nota"
-                type="number"
-                pattern="[0-9]"
-                placeholder="De 0 a 10"
-              />
-              <div id="validacao_nota"></div>
-            </div>
-            <div class="l-campos">
-              <select title="videos" id="nota_lembranca">
-                <option disabled selected>-- SELECIONE A LEMBRANÇA</option>
-                <option value="1">Sanji quer voltar para o Sunny</option>
-                <option value="2">Caminhada para Franky house</option>
-                <option value="3">Robin - Eu quero viver!</option>
-                <option value="4">Jinbe doa seu sangue à Luffy</option>
-                <option value="5">Nami pede ajuda a Luffy que...</option>
-                <option value="6">Luffy chama Franky para o bando</option>
-                <option value="7">Luffy chama Zoro para o bando</option>
-                <option value="8">Luffy chama Chopper para o bando</option>
-                <option value="9">Bink's Sake</option>
-                <option value="10">Usopp sai do bando</option>
-                <option value="11">
-                  Usopp se pede desculpas e volta para o bando
-                </option>
-              </select>
-              <div id="validacao_email"></div>
-            </div>
-            <button onclick="publicar(1)" id="btn_cadastro">AVALIAR</button>
-            <span id="erro_geral"></span>
-          </div>
-        </div>
-      </section>
-
-      <div class="video-player" id="player_video">
-        <video width="100%" autoplay controls id="meuVideo">
-          <source src="" type="video/mp4" />
-        </video>
-        <img
-          src="Assents-cards/close-button.png"
-          class="close-btn"
-          alt="Botão para fechar o video"
-          onclick="closeVideo()"
-        />
+<body onload="cardsMaioresNotas(), allCards(), validarSessao(), exibirFrase()">
+  <div id="grid" class="l-grid">
+    <header class="l-header">
+      <img class="merry" src="Assents/merry.png" alt="" />
+      <div class="container">
+        <img src="Assents/logo_colorida.png" alt="logo de One Piece em preto e branco" />
+        <span>Tales</span>
       </div>
+      <nav class="navbar">
+        <ul>
+          <li onclick="abrirModal()"><a>AVALIAR</a></li>
+          <li onclick="limparSessao()"><a href="login.html">SAIR</a></li>
+        </ul>
+      </nav>
+      <img class="sunny" src="Assents/sunny.png" alt="" />
+    </header>
 
-      <footer>
-        <div class="l-footer">
-          <span>Desenvolvido por um aluno SPTech fã de One Piece</span>
-          <span>Projeto Individual de Mateus Joaquim ₢</span>
+    <aside id="aside" class="l-aside">
+      <h2 id="ola_h2" class="ola">Olá, <span id="nickname"></span></h2>
+      <div class="titulo_e_frase">
+        <h2 id="h2_text_aside">Lembraças</h2>
+        <div id="container_frase" class="container-frase">
+          <span id="frase_usuario">Escreva aqui sua frase favorita do anime</span>
+          <img id="img_frase" onclick="abrirInputFrase()" class="svg-lapis" width="15px" src="Assents/lapis.png"
+            alt="Imagem de lapis para adicionar sua frase">
         </div>
-      </footer>
+      </div>
+      <img id="bandeira_mugis" class="slt-ordenar" onclick="fecharModal()" src="Assents/icon-bandeira.png"
+        alt="icon para voltar a home page" />
+    </aside>
+
+    <section id="area_top" class="area1">
+      <h2>Top 10</h2>
+      <main id="main_cards" class="l-main-maiores-notas">
+      </main>
+    </section>
+    <section id="area_todos" class="area2">
+      <h2>Todos os momentos</h2>
+      <main id="main_cards2" class="l-main-todos">
+      </main>
+    </section>
+
+    <div id="formulario" class="formulario-modal">
+      <div class="container">
+        <h2>Avaliar</h2>
+        <div class="l-campos">
+          <span>Digite a nota:</span>
+          <input autofocus id="ipt_nota" type="number" pattern="[0-9]" placeholder="De 0 a 10" />
+          <div id="validacao_nota"></div>
+        </div>
+        <div class="l-campos">
+          <select title="videos" id="nota_lembranca">
+            <option disabled selected>-- SELECIONE A LEMBRANÇA</option>
+            <option value="1">Sanji quer voltar para o Sunny</option>
+            <option value="2">Caminhada para Franky house</option>
+            <option value="3">Robin - Eu quero viver!</option>
+            <option value="4">Jinbe doa seu sangue à Luffy</option>
+            <option value="5">Nami pede ajuda a Luffy que...</option>
+            <option value="6">Luffy chama Franky para o bando</option>
+            <option value="7">Luffy chama Zoro para o bando</option>
+            <option value="8">Luffy chama Chopper para o bando</option>
+            <option value="9">Bink's Sake</option>
+            <option value="10">Usopp sai do bando</option>
+            <option value="11">Usopp se pede desculpas e volta para o bando</option>
+          </select>
+          <div id="validacao_email"></div>
+        </div>
+        <button onclick="publicar()" id="btn_cadastro">AVALIAR</button>
+        <span id="erro_geral"></span>
+      </div>
     </div>
-  </body>
+    <!-- </section> -->
+
+    <div class="video-player" id="player_video">
+      <video width="100%" autoplay controls id="meuVideo">
+        <source src="" type="video/mp4" />
+      </video>
+      <img src="Assents-cards/close-button.png" class="close-btn" alt="Botão para fechar o video"
+        onclick="closeVideo()" />
+    </div>
+
+    <footer>
+      <div class="l-footer">
+        <span>Desenvolvido por um aluno SPTech fã de One Piece</span>
+        <span>Projeto Individual de Mateus Joaquim ₢</span>
+      </div>
+    </footer>
+  </div>
+</body>
+
 </html>
 <!-- script da lista e videos e exibição na tela -->
 <script>
+  // Lista de videos e exibição na tela
+
   var listaVideos = [
     {
+      id: 1,
       titulo: "Sanji quer voltar para o Sunny",
       imagem: "Assents-cards/sanji-quer-voltar-para-o-sunny.jpg",
-      urlVideo: "Assents/videos/sanji-quer-voltar-para-o-sunny.mp4",
+      urlV: "Assents/videos/sanji-quer-voltar-para-o-sunny.mp4",
     },
     {
+      id: 2,
       titulo: "Caminhada para Franky house",
       imagem: "Assents-cards/caminhada-para-franky-house.jpg",
-      urlVideo: "Assents/videos/caminhada-para-franky-house.mp4",
+      urlV: "Assents/videos/caminhada-para-franky-house.mp4",
     },
     {
+      id: 3,
       titulo: "Robin - Eu quero viver!",
       imagem: "Assents-cards/robin-quero-viver.jpg",
-      urlVideo: "Assents/videos/robin-quero-viver.mp4",
+      urlV: "Assents/videos/robin-quero-viver.mp4",
     },
     {
+      id: 4,
       titulo: "Jinbe doa seu sangue à Luffy",
       imagem: "Assents-cards/jinbe-doa-sangue-para-luffy.jpg",
-      urlVideo: "Assents/videos/.mp4",
+      urlV: "Assents/videos/jinbe-doa-sangue-para-luffy.mp4",
     },
     {
+      id: 5,
       titulo: "Nami pede ajuda a Luffy",
       imagem: "Assents-cards/nami-pede-sorroco-a-luffy.jpg",
-      urlVideo: "Assents/videos/nami-pede-sorroco-a-luffy.mp4",
+      urlV: "Assents/videos/nami-pede-sorroco-a-luffy.mp4",
     },
     {
+      id: 6,
       titulo: "Luffy chama Franky para o bando",
       imagem: "Assents-cards/luffy-recruta-franky.jpg",
-      urlVideo: "Assents/videos/luffy-recruta-franky.mp4",
+      urlV: "Assents/videos/luffy-recruta-franky.mp4",
     },
     {
+      id: 7,
       titulo: "Luffy chama Zoro para o bando",
       imagem: "Assents-cards/luffy-recruta-zoro.jpg",
-      urlVideo: "Assents/videos/luffy-recruta-zoro.mp4",
+      urlV: "Assents/videos/luffy-recruta-zoro.mp4",
     },
     {
+      id: 8,
       titulo: "Luffy chama Chopper para o bando",
       imagem: "Assents-cards/Luffy-recruta-chopper.jpg",
-      urlVideo: "Assents/videos/Luffy-recruta-chopper.mp4",
+      urlV: "Assents/videos/Luffy-recruta-chopper.mp4",
     },
     {
+      id: 9,
       titulo: "Bink's Sake",
       imagem: "Assents-cards/binks-sake.jpg",
-      urlVideo: "Assents/videos/binks-sake.mp4",
+      urlV: "Assents/videos/binks-sake.mp4",
     },
     {
+      id: 10,
       titulo: "Usopp sai do bando",
       imagem: "Assents-cards/usopp-sai-do-bando.jpg",
-      urlVideo: "Assents/videos/usopp-sai-bando.mp4",
+      urlV: "Assents/videos/usopp-sai-bando.mp4",
     },
     {
+      id: 11,
       titulo: "Usopp se pede desculpas e volta para o bando",
       imagem: "Assents-cards/usopp-volta-para-o-bando.jpg",
-      urlVideo: "Assents/videos/usopp-volta-para-o-bando.mp4",
-    },
+      urlV: "Assents/videos/usopp-volta-para-o-bando.mp4",
+    }
   ];
 
-  function carregarCards() {
-    for (var index = 0; index < listaVideos.length; index++) {
-      var video = listaVideos[index];
+  // Modal script  e avaliação
 
-      main_cards.innerHTML += `
-            <div id="card${index}" class="card">
-                    <div class="card-img">
-                        <img src="${video.imagem}" width="100%" alt="">
-                        <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('${video.urlVideo}')">
-                    </div>
-                    <div class="text-cards">
-                        <span>${video.titulo}</span>
-                        <div class="nota"> <span>NOTA MÉDIA: </span><span class="valor-nota"></span></div>
-                        <div class="div-avaliar" id="avaliacao_nota">
-                            <button onclick="abrirModal()">Avaliar</button>
-                        </div>
-                    </div>
-                </div>
-            `;
-    }
-  }
+  //   Modal's para abrir player de video e o sistema de avaliação dos momentos
 
-  console.log(listaVideos);
-  // console.log(notas);
-</script>
-
-<!-- Modal script  e avaliação-->
-<script>
   var videoPlayer = document.getElementById("player_video");
   var video = document.getElementById("meuVideo");
 
   function closeVideo() {
     videoPlayer.style.display = "none";
     video.pause();
+    document.getElementById("aside").style.display = "flex";
+    document.getElementById("area_top").style.display = "flex";
+    document.getElementById("area_todos").style.display = "flex";
   }
 
   function playVideo(file) {
     video.src = file;
     videoPlayer.style.display = "block";
+    document.getElementById("aside").style.display = "none";
+    document.getElementById("area_top").style.display = "none";
+    document.getElementById("area_todos").style.display = "none";
   }
 
   function fecharModal() {
+    var nickName = sessionStorage.NOME_USUARIO;
+
     for (var index = 0; index < listaVideos.length; index++) {
       formulario.style.display = "none";
+      aside.innerHTML = `
+      <h2 id="ola_h2" class="ola">Olá, <span id="nickname">${nickName}</span></h2>
+      <div class="titulo_e_frase">
+        <h2 id="h2_text_aside">Lembraças</h2>
+        <span id="frase_usuario">Escreva aqui sua frase favorita do anime</span>
+      </div>
+      <img class="slt-ordenar" onclick="fecharModal()" src="Assents/icon-bandeira.png" alt="icon para voltar a home page"/>
+      `;
+      document.getElementById("area_top").style.display = "flex";
+      document.getElementById("area_todos").style.display = "flex";
       document.getElementById("card" + index).style.display = "flex";
     }
   }
 
   function abrirModal() {
     for (var index = 0; index < listaVideos.length; index++) {
+      ola_h2.innerHTML = `Avalia aí`;
+      aside.innerHTML += `<img class="slt-ordenar" onclick="fecharModal()" src="Assents/back-icon.png" alt="icon para voltar a home page"/>`;
+      bandeira_mugis.style.display = "none";
+      h2_text_aside.innerHTML = `Avaliação`;
+      frase_usuario.innerHTML = `Faça suas avaliações aqui!`;
       formulario.style.display = "flex";
+      document.getElementById("area_top").style.display = "none";
+      document.getElementById("area_todos").style.display = "none";
       document.getElementById("card" + index).style.display = "none";
     }
   }
-  nickname.innerHTML = sessionStorage.NOME_USUARIO;
-</script>
 
-<!-- Publicar nota para momento -->
-<script>
+  nickname.innerHTML = sessionStorage.NOME_USUARIO;
+
+  // Publicar nota para momento
   function publicar() {
+
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
-    var idVar = nota_lembranca.value;
+    var id = nota_lembranca.value;
     var select = nota_lembranca;
     var tituloVar = select.options[select.selectedIndex].text;
     var notaVar = ipt_nota.value;
+    var imagem = listaVideos[id - 1].imagem;
+    var urlVideo = listaVideos[id - 1].urlV;
     var idUsuario = sessionStorage.ID_USUARIO;
 
     if (notaVar == "") {
@@ -259,9 +261,11 @@
       body: JSON.stringify({
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
-        idServer: idVar,
-        notaServer: notaVar,
+        idServer: id,
         tituloServer: tituloVar,
+        imagemServer: imagem,
+        urlVideoServer: urlVideo,
+        notaServer: notaVar
       }),
     })
       .then(function (resposta) {
@@ -284,9 +288,11 @@
     return false;
   }
 
-  function atualizarFeed() {
-    //aguardar();
-    fetch("/avisos/listar")
+  function cardsMaioresNotas() {
+
+    var idMomento = 1;
+
+    fetch(`/avaliar/mostrarMedia/${idMomento}`)
       .then(function (resposta) {
         if (resposta.ok) {
           if (resposta.status == 204) {
@@ -294,26 +300,39 @@
 
           resposta.json().then(function (resposta) {
             console.log("Dados recebidos: ", JSON.stringify(resposta));
-            
-            for (var index = 0; index < listaVideos.length; index++) {
-                var video = listaVideos[index];
-                var publicacao = resposta[index];
 
-              main_cards.innerHTML += `
-            <div id="card${index}" class="card">
-                    <div class="card-img">
-                        <img src="${video.imagem}" width="100%" alt="">
-                        <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('${video.urlVideo}')">
+            var contador = 0;
+            for (var index = 0; index < resposta.length; index++) {
+              var publicacao = resposta[index];
+
+              if (publicacao.notaMedia == 10.0) {
+                publicacao.notaMedia = 10;
+                main_cards.innerHTML += `
+                <div id="card${index}" class="card">
+                  <div class="card-img">
+                    <img src="${publicacao.imagem}" width="100%" alt="...">
+                    <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('${publicacao.urlVideo}')">
                     </div>
                     <div class="text-cards">
-                        <span>${video.titulo}</span>
-                        <div class="nota"> <span>NOTA MÉDIA: </span><span class="valor-nota">${publicacao.notaMed}</span></div>
-                        <div class="div-avaliar" id="avaliacao_nota">
-                            <button onclick="abrirModal()">Avaliar</button>
-                        </div>
+                      <span>${publicacao.titulo}</span>
+                      <div class="nota"> <span>NOTA MÉDIA: </span><span class="valor-nota">${publicacao.notaMedia}</span></div>
+                      </div>
+                      </div>
+                      `;
+              } else {
+                main_cards.innerHTML += `
+                <div id="card${index}" class="card">
+                  <div class="card-img">
+                    <img src="${publicacao.imagem}" width="100%" alt="...">
+                    <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('${publicacao.urlVideo}')">
                     </div>
-                </div>
-            `;
+                    <div class="text-cards">
+                      <span>${publicacao.titulo}</span>
+                      <div class="nota"> <span>NOTA MÉDIA: </span><span class="valor-nota">${publicacao.notaMedia}</span></div>
+                      </div>
+                      </div>
+                      `;
+              }
             }
           });
         } else {
@@ -324,4 +343,165 @@
         console.error(resposta);
       });
   }
+
+  function allCards() {
+
+    var idMomento = 1;
+
+    fetch(`/avaliar/allCards/${idMomento}`)
+      .then(function (resposta) {
+        if (resposta.ok) {
+          if (resposta.status == 204) {
+          }
+
+          resposta.json().then(function (resposta) {
+            console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+            var contador = 0;
+            for (var index = 0; index < listaVideos.length; index++) {
+              var videos = listaVideos[index];
+              var publicacao = resposta[contador];
+
+              if (publicacao != undefined && publicacao.id == videos.id) {
+                if (publicacao.notaMedia == 10.0) {
+                  publicacao.notaMedia = 10;
+                  main_cards2.innerHTML += `
+                  <div id="card${index}" class="card">
+                    <div class="card-img">
+                      <img src="${videos.imagem}" width="100%" alt="...">
+                      <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('${videos.urlV}')">
+                      </div>
+                      <div class="text-cards">
+                        <span>${videos.titulo}</span>
+                        <div class="nota"> <span>NOTA MÉDIA: </span><span class="valor-nota">${publicacao.notaMedia}</span></div>
+                        </div>
+                        </div>
+                      `;
+                  contador++;
+                } else {
+                  main_cards2.innerHTML += `
+                  <div id="card${index}" class="card">
+                    <div class="card-img">
+                      <img src="${videos.imagem}" width="100%" alt="...">
+                      <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('${videos.urlV}')">
+                      </div>
+                      <div class="text-cards">
+                        <span>${videos.titulo}</span>
+                        <div class="nota"> <span>NOTA MÉDIA: </span><span class="valor-nota">${publicacao.notaMedia}</span></div>
+                        </div>
+                        </div>
+                      `;
+                  contador++;
+                }
+              } else {
+                main_cards2.innerHTML += `
+                <div id="card${index}" class="card">
+                  <div class="card-img">
+                    <img src="${videos.imagem}" width="100%" alt="...">
+                    <img src="Assents-cards/play-img.png" class="play-bnt" alt="Botão de play" onclick="playVideo('${videos.urlV}')">
+                    </div>
+                    <div class="text-cards">
+                      <span>${videos.titulo}</span>
+                      <div class="nota"> <span>NOTA MÉDIA: </span><span class="valor-nota">X</span></div>
+                      </div>
+                      </div>
+                    `;
+
+              }
+
+            }
+          });
+        } else {
+          throw "Houve um erro na API!";
+        }
+      })
+      .catch(function (resposta) {
+        console.error(resposta);
+      });
+  }
+
+  function abrirInputFrase() {
+    document.getElementById("frase_usuario").style.display = "none";
+    document.getElementById("img_frase").style.display = "none";
+    document.getElementById("container_frase").innerHTML = `
+    <input id="ipt_frase" type="text" placeholder="Digite sua frase">
+    <button id="btn_frase" title="Botão para adicionar a frase" onclick="suaFrase()">Adicionar</button>
+    `;
+
+  }
+
+  function suaFrase() {
+    var frase = ipt_frase.value;
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    if (frase == "") {
+      alert("campo em branco");
+      return false;
+    } else {
+    }
+
+    // Enviando o valor da nova input
+    fetch(`/avaliar/suaFrase/${idUsuario}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        fraseServer: frase
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          mensagem_erro.innerHTML = "Frase adicionada com sucesso!";
+
+          setTimeout(() => {
+            window.location = "momentos.html";
+          }, "2000");
+        } else {
+          throw "Houve um erro ao tentar adicionar a frase!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+      document.getElementById("ipt_frase").style.display = "none";
+      document.getElementById("btn_frase").style.display = "none";
+      document.getElementById("container_frase").innerHTML = `
+    <button id= "buscar_frase" title="Botão para adicionar a frase" onclick="exibirFrase()">Mostrar Frase</button>
+    `;
+    return false;
+  }
+
+  function exibirFrase() {
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    fetch(`/avaliar/exibirFrase/${idUsuario}`)
+      .then(function (resposta) {
+        if (resposta.ok) {
+          if (resposta.status == 204) {
+          }
+
+          resposta.json().then(function (resposta) {
+            console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+            var frase = resposta;
+            document.getElementById("container_frase").innerHTML = `
+            <span>${resposta[0].fraseUsuario}</span>
+            `;
+
+          });
+        } else {
+          throw "Houve um erro na API!";
+        }
+      })
+      .catch(function (resposta) {
+        console.error(resposta);
+      });
+  }
+
 </script>
