@@ -214,6 +214,38 @@ a:hover {
     border-radius: 15px;
 }
 
+.l-main-maiores-notas::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+}
+
+.l-main-maiores-notas::-webkit-scrollbar-track {
+    background: rgba(120, 120, 120, .4);
+    border-radius: 10px;
+}
+
+.l-main-maiores-notas::-webkit-scrollbar-thumb {
+    background: rgba(0, 139, 242, 1);
+    border-radius: 20px;
+    border: 1px solid rgba(120, 120, 120, .4);
+}
+
+.l-main-todos::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+}
+
+.l-main-todos::-webkit-scrollbar-track {
+    background: rgba(120, 120, 120, .4);
+    border-radius: 10px;
+}
+
+.l-main-todos::-webkit-scrollbar-thumb {
+    background: rgba(0, 139, 242, 1);
+    border-radius: 20px;
+    border: 1px solid rgba(120, 120, 120, .4);
+}
+
 .card {
     display: flex;
     flex-direction: row;
@@ -275,6 +307,7 @@ a:hover {
     background-color: rgba(0, 0, 0, 0);
     justify-content: center;
     width: 40vw;
+    height: 60vh;
 }
 
 .formulario-modal .container {
@@ -393,21 +426,90 @@ video:focus~body {
     cursor: pointer;
 }
 
+/* Estilização botãos para inserir a frase */
+.ipt-frase {
+    align-self: center;
+    background-color: grey;
+    box-shadow: 5px 8px 5px rgba(46, 46, 46, .4);
+    color: black;
+    text-align: center;
+    font-size: 1rem;
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-bottom: 2px solid rgba(238, 173, 45, 1);
+    border-radius: 5px;
+    outline: none;
+}
+
+.btn-frase {
+    font-weight: 900;
+    border: none;
+    border-radius: 10px;
+    height: 25px;
+    margin-top: 5px;
+    width: 80px;
+}
+
+.btn-frase:hover {
+    background-color: rgba(238, 173, 45, 1);
+    cursor: pointer;
+}
+
 /* Estilização footer */
 footer {
     grid-area: footer;
 }
 
-footer>.l-footer {
+.l-footer {
+    padding: 15px;
     color: white;
     border-top: 1px solid white;
     font-size: 1.2rem;
     background-color: rgba(0, 0, 0, 1);
     height: 20vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.onde-assistir {
+    display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.midia-c>a {
+    font-size: 1.2rem;
+    color: orange;
+    text-decoration: none;
+}
+
+.midia-n>a {
+    font-size: 1.2rem;
+    color: red;
+    text-decoration: none;
+}
+
+.onde-assistir>a {
+    display: flex;
+    align-items: center;
+}
+
+.midia-c{
+    width: 180px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.midia-n{
+    display: flex;
+    align-items: center;
+    justify-content: end;
 }
 
 input::-webkit-inner-spin-button {

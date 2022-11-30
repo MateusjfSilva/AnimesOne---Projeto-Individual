@@ -19,7 +19,7 @@ function mostrarMedia() {
     for (var index = 0; index < 11; index++) {
         
         var instrucao = `
-        select id, titulo, imagem, urlVideo, truncate(avg(nota), 1) as 'notaMedia' from momento group by id order by notaMedia desc limit 10;
+        select id, titulo, imagem, urlVideo, truncate(avg(nota), 1) as 'notaMedia' from momento group by id order by notaMedia desc limit 5;
         `;
 
     }

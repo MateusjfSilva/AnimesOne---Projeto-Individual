@@ -34,7 +34,7 @@
                 </div>
                 <button onclick="entrar()" id="btn_login">LOGIN</button>
                 <span class="cadastrado">Não é cadastrado? <a href="cadastro.html">Clique aqui!</a></span>
-                <span id="mensagem_erro"></span>
+                <span id="mensagem_erro" class="text-cadastro"></span>
             </div>
         </div>
     </div>
@@ -45,19 +45,19 @@
 
 
     function entrar() {
-        // aguardar();
+        validarSessao()
 
         var emailVar = ipt_email.value;
         var senhaVar = ipt_senha.value;
 
         if (emailVar == "" || senhaVar == "") {
-            // cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Um ou mais campos em branco)";
-            // finalizarAguardar();
+
+            mensagem_erro.innerHTML = `Um ou mais campos em branco`;
+
             return false;
         }
         else {
-            // setInterval(sumirMensagem, 5000)
+
         }
 
         console.log("FORM LOGIN: ", emailVar);
@@ -86,9 +86,11 @@
                     sessionStorage.NOME_USUARIO = json.nick;
                     sessionStorage.ID_USUARIO = json.id;
 
+                    mensagem_erro.innerHTML = `Entrando...`;
+
                     setTimeout(function () {
                         window.location = "momentos.html";
-                    }, 1000); // apenas para exibir o loading
+                    }, 1500);
 
                 });
 
@@ -98,7 +100,7 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    // finalizarAguardar(texto);
+
                 });
             }
 
@@ -108,9 +110,4 @@
 
         return false;
     }
-
-    // function sumirMensagem() {
-    //     cardErro.style.display = "none"
-    // }
-
 </script>

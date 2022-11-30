@@ -92,11 +92,22 @@
         onclick="closeVideo()" />
     </div>
 
-    <footer>
-      <div class="l-footer">
-        <span>Desenvolvido por um aluno SPTech fã de One Piece</span>
-        <span>Projeto Individual de Mateus Joaquim ₢</span>
-      </div>
+    <footer class="l-footer">
+      <div class="contato">
+        <span>Desenvolvido por um aluno<br> SPTech
+          fã de One Piece<br><br></span>
+          <span>Projeto de Mateus Joaquim Ferreira da Silva<br>
+            Email: mateus.jsilva@sptech.school</span>
+          </div>
+          <div class="onde-assistir">
+            <h3>Assista agora em:</h3>
+            <div class="midia-c">
+              <span>Crunchyroll</span><a href="https://www.crunchyroll.com/pt-br/series/GRMG8ZQZR/one-piece?utm_source=paid_cr&utm_medium=google-search&utm_campaign=conversion-cr10SPA&utm_term=crunchyroll&referrer=paid_cr_google-search_conversion-cr10SPA&gclid=Cj0KCQiA-JacBhC0ARIsAIxybyODEv34vigVNA0rh6e82QA7A84hXcJ6Gr3ZiRiagBMvAENw-gN8ilEaAnl-EALw_wcB" target="_blank"><img src="Assents/crunchyroll-logo.png" width="70px" alt="Logo Crunchyroll"></a>
+            </div>
+            <div class="midia-n">
+              <span>Netflix</span><a href="https://www.netflix.com/search?q=One%20Piece" target="_blank"><img src="Assents/netflix-logo.png" height="40px" alt="Logo Netflix"></a>
+            </div>
+          </div>
     </footer>
   </div>
 </body>
@@ -213,22 +224,21 @@
       `;
       document.getElementById("area_top").style.display = "flex";
       document.getElementById("area_todos").style.display = "flex";
-      document.getElementById("card" + index).style.display = "flex";
+      // document.getElementById("card" + index).style.display = "flex";
     }
   }
 
   function abrirModal() {
-    for (var index = 0; index < listaVideos.length; index++) {
+    // for (var index = 0; index < listaVideos.length; index++) {
       ola_h2.innerHTML = `Avalia aí`;
-      aside.innerHTML += `<img class="slt-ordenar" onclick="fecharModal()" src="Assents/back-icon.png" alt="icon para voltar a home page"/>`;
+      aside.innerHTML += `<img class="slt-ordenar" onclick="fecharModal()" src="Assents/back-icon.png" alt="icon para voltar para momentos page"/>`;
       bandeira_mugis.style.display = "none";
       h2_text_aside.innerHTML = `Avaliação`;
-      frase_usuario.innerHTML = `Faça suas avaliações aqui!`;
+      // frase_usuario.innerHTML = `Faça suas avaliações aqui!`;
       formulario.style.display = "flex";
       document.getElementById("area_top").style.display = "none";
       document.getElementById("area_todos").style.display = "none";
-      document.getElementById("card" + index).style.display = "none";
-    }
+    // }
   }
 
   nickname.innerHTML = sessionStorage.NOME_USUARIO;
@@ -424,8 +434,8 @@
     document.getElementById("frase_usuario").style.display = "none";
     document.getElementById("img_frase").style.display = "none";
     document.getElementById("container_frase").innerHTML = `
-    <input id="ipt_frase" type="text" placeholder="Digite sua frase">
-    <button id="btn_frase" title="Botão para adicionar a frase" onclick="suaFrase()">Adicionar</button>
+    <input id="ipt_frase" type="text" class="ipt-frase" placeholder="Digite sua frase">
+    <button id="btn_frase" title="Botão para adicionar a frase" class="btn-frase" onclick="suaFrase()">Inserir</button>
     `;
 
   }
@@ -456,12 +466,13 @@
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          mensagem_erro.innerHTML = "Frase adicionada com sucesso!";
-
+          window.alert("Frase adicionada com sucesso!");
+          
           setTimeout(() => {
-            window.location = "momentos.html";
+            window.onload = "momentos.html";
           }, "2000");
         } else {
+          window.alert("Frase muito extensa, simplifique-a");
           throw "Houve um erro ao tentar adicionar a frase!";
         }
       })
@@ -472,7 +483,7 @@
       document.getElementById("ipt_frase").style.display = "none";
       document.getElementById("btn_frase").style.display = "none";
       document.getElementById("container_frase").innerHTML = `
-    <button id= "buscar_frase" title="Botão para adicionar a frase" onclick="exibirFrase()">Mostrar Frase</button>
+    <button id= "buscar_frase" class="btn-frase" title="Botão para adicionar a frase" onclick="exibirFrase()">Salvar</button>
     `;
     return false;
   }

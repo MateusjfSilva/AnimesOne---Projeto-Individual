@@ -15,7 +15,7 @@
     <div class="all-items">
         <div class="left-login">
             <h2>Cadastre-se</h2>
-            <span>e acompanhe o futuro dos mugiwaras!</span>
+            <span>One Piece é para toda a vida</span>
             <img src="Assents/mugiwaras-futuro.png" alt="">
         </div>
     <div class="formulario">
@@ -24,50 +24,86 @@
             <h2>Cadastro</h2>
             <div class="l-campos">
                 <span>Digite seu nickname:</span>
-                <input autofocus id="ipt_nick_name" type="text" placeholder="No mínimo 4 caracteres">
-                <div id="validacao_nick"></div>
+                <input autofocus id="ipt_nick_name" type="text" placeholder="No mínimo 4 caracteres" maxlength="20">
+                <div id="validacao_nick" class="text-cadastro"></div>
             </div>
             <div class="l-campos">
                 <span>Digite seu e-mail:</span>
-                <input id="ipt_email" type="text" placeholder="seuemail@dominio.com">
-                <div id="validacao_email"></div>
+                <input id="ipt_email" type="text" placeholder="seuemail@dominio.com" maxlength="64">
+                <div id="validacao_email" class="text-cadastro"></div>
             </div>
             <div class="l-campos">
                 <span>Digite sua senha:</span>
-                <input id="ipt_senha" type="password" placeholder="********" minlength="8" maxlength="64">
-                <div id="validacao_senha"></div>
+                <input id="ipt_senha" type="password" placeholder="********" maxlength="64">
+                <div id="validacao_senha" class="text-cadastro"></div>
             </div>
             <div class="l-campos">
                 <span>Confirme sua senha:</span>
-                <input id="ipt_confirmar_senha" type="password" placeholder="********" minlength="8" maxlength="64">
-                <div id="validacao_conf_senha"></div>
+                <input id="ipt_confirmar_senha" type="password" placeholder="********" maxlength="64">
+                <div id="validacao_conf_senha" class="text-cadastro"></div>
             </div>
             <button onclick="cadastrar()" id="btn_cadastro">CADASTRAR</button>
             <span class="cadastrado">Já é cadastrado? <a href="login.html">Clique aqui!</a></span>
-            <span id="erro_geral" class="cadastrado"></span>
+            <span id="erro_geral" class="text-cadastro"></span>
         </div>
     </div>
 </body>
 </html>
 <script>
     function cadastrar() {
-        // aguardar();
+        var erro = false;
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
         var nickVar = ipt_nick_name.value;
         var emailVar = ipt_email.value;
         var senhaVar = ipt_senha.value;
-        var validacaoSenhaVar = validacao_conf_senha.value;
+        var validacaoSenhaVar = ipt_confirmar_senha.value;
 
         if (nickVar == "" || emailVar == "" || senhaVar == "" || validacaoSenhaVar == "") {
             erro_geral.innerHTML = `Um ou mais campos em branco`;
-
-            // finalizarAguardar();
-            return false;
+            
+            erro = true;
+        } else {
+            erro_geral.innerHTML = ``;
         }
-        else {
-            // setInterval(sumirMensagem, 5000)
+        
+        if (nickVar.length < 4) {
+            validacao_nick.innerHTML = `Nick tem que ter no minimo 4 caracteres`;
+
+            erro = true;
+        } else {
+            validacao_nick.innerHTML = ``;
+        }
+
+        if (emailVar.indexOf("@") == -1) {
+            validacao_email.innerHTML = `Estrutura do email está errada`;
+
+            erro = true;
+        } else {
+            validacao_email.innerHTML = ``;
+        }
+
+        if (senhaVar.length < 8 || senhaVar.length > 64) {
+            validacao_senha.innerHTML = `Senha tem que ter de 8 a 64 digitos`;
+
+            erro = true;
+        } else {
+            validacao_senha.innerHTML = ``;
+        }
+
+        if (senhaVar != validacaoSenhaVar) {
+            validacao_conf_senha.innerHTML = `Confirmação da senha e senha estão diferentes`;
+
+            erro = true;
+        } else {
+            validacao_conf_senha.innerHTML = ``;
+        }
+
+        if (erro == true) {
+            return false
+        } else {
+
         }
 
         // Enviando o valor da nova input
@@ -90,7 +126,7 @@
             if (resposta.ok) {
                 // cardErro.style.display = "block";
 
-                erro_geral.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                erro_geral.innerHTML = "Cadastro realizado com sucesso!<br>Redirecionando para tela de Login...";
 
                 setTimeout(() => {
                     window.location = "login.html";
